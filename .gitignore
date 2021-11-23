@@ -3,6 +3,7 @@
 *.swo
 test.py
 scratch/
+inputs/*
 
 # ---> Python
 # Byte-compiled / optimized / DLL files
