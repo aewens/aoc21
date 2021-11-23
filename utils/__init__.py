@@ -1,5 +1,6 @@
 from pathlib import Path
 from importlib import import_module
+from collections import defaultdict
 
 def noop(*args, **kwargs):
     pass
@@ -27,7 +28,7 @@ def get_puzzle(day, nostrip=False, nolines=False):
     return newlines
 
 def get_solutions():
-    solutions = dict()
+    solutions = defaultdict(lambda: noop)
     path = Path.cwd() / "solutions"
     if not path.exists():
         return solutions
