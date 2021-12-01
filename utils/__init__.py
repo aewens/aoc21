@@ -46,3 +46,13 @@ def get_solutions():
         solutions[day] = getattr(script, "solve", noop)
 
     return solutions
+
+def get_solution_script(day):
+    package = f"day{day:02}"
+    path = Path.cwd() / "solutions" / f"{package}.py"
+    if not path.exists():
+        return noop
+
+    # equivalent of "import <path>.<package>"
+    script = import_module(f".{package}", "solutions")
+    return lambda key: getattr(script, key, None)
