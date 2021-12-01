@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from utils import noop, get_puzzle, get_solutions
 
 from time import perf_counter
