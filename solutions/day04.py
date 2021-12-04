@@ -29,7 +29,7 @@ def check_rows(numbers, board):
     return False
 
 def check_cols(numbers, board):
-    cols = len(board[0])
+    cols = len(board)
     for c in range(cols):
         found = list()
         for row in board:
@@ -103,7 +103,7 @@ def d4p2(puzzle_input):
 
     used = list()
     state = dict()
-    while len(state) < 3:
+    while len(state) < len(boards):
         state, used, numbers = play_game(numbers, boards, used, state)
 
     last_turn = max(state.values())
