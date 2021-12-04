@@ -45,7 +45,12 @@ def main():
         print(divider)
         exit(0)
 
-    for index, solution in get_solutions().items():
+    #for index, solution in get_solutions().items():
+    for index in range(len(solutions)):
+        solution = solutions.get(index)
+        if solution is None:
+            continue
+
         start = perf_counter()
         day = f"Day {index:02}"
         puzzle = get_puzzle(index)
