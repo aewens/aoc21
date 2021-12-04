@@ -2,7 +2,6 @@ from collections import defaultdict
 
 def search(lines, find=0, index=0):
     if len(lines) == 1:
-        print(lines[0])
         return int(lines[0], 2)
 
     ones = 0
@@ -58,7 +57,6 @@ def d3p1(puzzle_input):
             gamma = gamma + "0"
             epsilon = epsilon + "1"
 
-    print(gamma, epsilon)
     return int(gamma, 2) * int(epsilon, 2)
 
 def d3p2(puzzle_input):
