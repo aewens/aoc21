@@ -1,3 +1,5 @@
+from math import sqrt
+
 def parse(puzzle_input):
     subs = list()
     for sub in puzzle_input[0].split(","):
@@ -12,7 +14,11 @@ def gauss(n):
 def d7p1(puzzle_input):
     subs = parse(puzzle_input)
     fuel = dict()
-    for s in range(max(subs)+1):
+    mean = int(sum(subs)/len(subs))
+    sd = int(sqrt(sum(subs)/mean))
+    start = mean-sd
+    end = mean+sd+1
+    for s in range(start,end):
         fuel[s] = 0
         for sub in subs:
             fuel[s] = fuel[s] + abs(s-sub)
@@ -22,7 +28,11 @@ def d7p1(puzzle_input):
 def d7p2(puzzle_input):
     subs = parse(puzzle_input)
     fuel = dict()
-    for s in range(max(subs)+1):
+    mean = int(sum(subs)/len(subs))
+    sd = int(sqrt(sum(subs)/mean))
+    start = mean-sd
+    end = mean+sd+1
+    for s in range(start,end):
         fuel[s] = 0
         for sub in subs:
             fuel[s] = fuel[s] + gauss(abs(s-sub))
